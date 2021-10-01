@@ -1,5 +1,9 @@
-Select count(assistance_requests.teacher_id) as Total_assitances, teachers.name as teacher
+SELECT teachers.name as Teacher, 
+students.name as Student,
+assignments.name as Assignment,
+(assistance_requests.completed_at - assistance_requests.started_at) as duration
 FROM assistance_requests
 JOIN teachers ON teachers.id = teacher_id
-WHERE name = 'Waylon Boehm'
-GROUP BY teachers.name;
+JOIN students ON students.id = student_id
+JOIN assignments ON assignments.id = assignment_id
+ORDER BY duration;
