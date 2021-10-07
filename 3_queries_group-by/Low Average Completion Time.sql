@@ -7,4 +7,4 @@ JOIN assignments ON assignment_submissions.assignment_id = assignments.id
 WHERE students.end_date IS NULL 
 GROUP BY students.name
 HAVING avg(assignment_submissions.duration) < avg(assignments.duration)
-ORDER BY average_assignment_duration DESC;
+ORDER BY average_assignment_duration;
